@@ -1,8 +1,16 @@
-# macOS Mission Control + QuickShade issue
+# macOS Mission Control missing thumbnails — troubleshooting guide
 
-A small public troubleshooting note for people who suddenly lose **window previews inside the Desktop/Space thumbnails at the top of Mission Control** and assume macOS itself is broken.
+A practical troubleshooting guide for a specific Mission Control symptom:
 
-## TL;DR — check QuickShade first
+> **Windows are open, but their previews disappear from the Desktop/Space thumbnails at the top of Mission Control.**
+
+The goal of this repository is to help people check **third-party software and other common causes before assuming macOS itself is broken, resetting system preferences, or reinstalling macOS**.
+
+QuickShade is the first **confirmed and fully reproducible cause** documented here, but this guide is intentionally broader: if you do not use QuickShade, continue with the troubleshooting steps below.
+
+## Confirmed cause #1 — QuickShade
+
+### TL;DR — check QuickShade first
 
 On the tested system, the issue is **fully reproducible** with QuickShade:
 
@@ -69,13 +77,19 @@ killall QuickShade
 
 The thumbnails should return immediately.
 
-This repository documents a reproducible compatibility issue observed on one tested Mac. It is not an official Apple or QuickShade bug tracker, and behavior may differ on other hardware or macOS builds.
+This repository started from a reproducible QuickShade compatibility issue observed on one tested Mac, then expanded into a broader Mission Control troubleshooting guide. It is not an official Apple or QuickShade bug tracker, and behavior may differ on other hardware or macOS builds.
 
 ---
 
-# If disabling QuickShade does not fix your problem
+# General Mission Control troubleshooting
 
-The rest of this document is the troubleshooting path used before the QuickShade conflict was isolated.
+If you do **not** have QuickShade, or disabling it does not fix the problem, continue here.
+
+These are the diagnostic steps used to isolate the confirmed QuickShade case, but most of them are useful for **other user-specific Mission Control thumbnail problems as well**.
+
+The main principle is simple:
+
+> **Rule out third-party software and user-session differences before resetting macOS preferences.**
 
 **Do not start by deleting preferences.** Work from the least destructive checks to the most invasive ones.
 
@@ -422,7 +436,7 @@ Do **not** blindly copy another person's ByHost files or UUID-specific preferenc
 
 ---
 
-# What actually solved the tested case
+# Confirmed result in the original tested case
 
 The long troubleshooting path was useful for isolation, but the final cause was simple:
 
@@ -442,9 +456,11 @@ So if you found this page because Mission Control suddenly looks broken:
 
 ---
 
-## Reporting another configuration
+## Share confirmations or other reproducible causes
 
-If you can reproduce the same behavior, please open an issue and include:
+Issues are welcome primarily to **document affected configurations and reproducible causes**, not as a promise of individual technical support.
+
+If you can reproduce the QuickShade behavior, feel free to open an issue with:
 
 - Mac model / Apple silicon or Intel
 - macOS version and build
@@ -456,12 +472,16 @@ If you can reproduce the same behavior, please open an issue and include:
 - whether Safe Mode works normally
 - whether an external display is connected
 
-This will help determine how broad the compatibility issue is.
+If you have the **same Mission Control thumbnail symptom but do not use QuickShade**, an issue is also useful if you have found another reproducible cause. Please describe the smallest ON/OFF or start/stop test that makes the problem disappear and return.
+
+This helps build a list of confirmed configurations and causes for other users.
+
+> This repository is **not a support desk**, and individual troubleshooting or a solution for every configuration is not guaranteed.
 
 ---
 
 ## Disclaimer
 
-This is an independent troubleshooting repository based on a reproducible user test. It is not affiliated with Apple or the QuickShade developer.
+This is an independent Mission Control troubleshooting repository built from a reproducible user investigation. QuickShade is one confirmed cause documented here, not an assumption that every similar Mission Control problem is caused by QuickShade. It is not affiliated with Apple or the QuickShade developer.
 
 Preference-reset commands can change your macOS user configuration. Use backups and understand the commands before running them.
