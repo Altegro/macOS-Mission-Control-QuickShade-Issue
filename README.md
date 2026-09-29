@@ -10,6 +10,10 @@ QuickShade is the first **confirmed and fully reproducible cause** documented he
 
 ## Confirmed cause #1 — QuickShade
 
+
+https://github.com/user-attachments/assets/8f2ae79a-3c6f-48b5-9d96-6d6ca5c8905d
+
+
 ### TL;DR — check QuickShade first
 
 On the tested system, the issue is **fully reproducible** with QuickShade:
